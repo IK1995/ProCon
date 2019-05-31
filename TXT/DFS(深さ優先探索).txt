@@ -1,0 +1,42 @@
+const int nmax=8;
+bool graph[nmax][nmax];
+int dfs(int v,int N,bool visited[nmax]){
+
+ bool all_visited=true;
+
+ for(int i=0;i<N;++i){
+ 	if(visited[i]==false)
+ 	all_visited=false;
+ }
+
+ if(all_visited){
+ 	return 1;
+ }
+
+
+ int ret=0;
+
+ for(int i=0;i<N;++i){
+ 	if(graph[v][i]==false) continue;
+ 	if(visited[i]) continue;
+
+ 	visited[i]=true;
+ 	ret+=dfs(i,N,visited);
+ 	visited[i]=false;
+ }
+
+ 	return ret;
+ }
+
+•Ê‰ð
+bool dfs(int i, int sum){
+  
+if(i==n) return sum==k;
+  
+if(dfs(i+1,sum)) return true;
+  
+if(dfs(i+1,sum+a[i])) return true;
+ 
+ return false;
+
+}

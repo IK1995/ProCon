@@ -1,0 +1,18 @@
+while(b){
+            a%=b;
+            tmp=b;
+            b=a;
+            a=tmp;
+            cnt++;
+        }
+
+Å‘åŒö–ñ”
+ll gcd(ll a,ll b){
+  if(b==0) return a;
+  return gcd(b,a%b);
+}
+Å¬Œö”{”
+ll lcm(ll a,ll b){
+  ll g=gcd(a,b);
+  return a/g*b;
+}

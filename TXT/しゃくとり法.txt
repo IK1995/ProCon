@@ -1,0 +1,46 @@
+int right = 0;     
+for (int left = 0; left < n; ++left) {
+    while (right < n && (right を 1 個進めたときに条件を満たす)) {
+        /* 実際に right を 1 進める */
+        // ex: sum += a[right];
+        ++right;
+    }
+
+    /* break した状態で right は条件を満たす最大なので、何かする */
+    // ex: res += (right - left);
+
+    /* left をインクリメントする準備 */
+    // ex: if (right == left) ++right;
+    // ex: else sum -= a[left];
+}
+しゃくとり法　汎用型
+
+以下、例
+
+/* Q 回分のクエリを処理 */
+    for (int j = 0; j < Q; ++j) {
+        long long x; cin >> x; // 各クエリ x
+
+        /* 合計値 */
+        long long res = 0;
+
+        /* 区間の左端 left で場合分け */
+        int right = 0;     // 毎回 right を使い回すようにする
+        long long sum = 0; // sum も使い回す
+        for (int left = 0; left < n; ++left) {
+            /* sum に a[right] を加えても大丈夫なら right を動かす */
+            while (right < n && sum + a[right] <= x) {
+                sum += a[right];
+                ++right;
+            }
+
+            /* break した状態で right は条件を満たす最大 */
+            res += (right - left);
+
+            /* left をインクリメントする準備 */
+            if (right == left) ++right; // right が left に重なったら right も動かす
+            else sum -= a[left]; // left のみがインクリメントされるので sum から a[left] を引く
+        }
+
+        cout << res << endl;
+    }

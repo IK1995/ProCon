@@ -1,0 +1,36 @@
+for(int i=0;i<a;i++) cin>>str[i];
+        for(int i=0;i<5;i++)pc[i].clear();
+        int sr,sc,gr,gc;
+        for(int i=0;i<a;i++)for(int j=0;j<b;j++){
+            if(str[i][j]=='S'){sr=i;sc=j;}
+            else if(str[i][j]=='G'){gr=i;gc=j;}
+            else if(str[i][j]!='.'){
+                pc[str[i][j]-'1'].push_back(make_pair(i,j));
+            }
+        }
+        int ret=999999999;
+        int at=0;
+        for(int i=0;i<5;i++){
+            for(int j=0;j<5;j++)for(int k=0;k<1010;k++)dp[j][k]=999999999;
+            for(int j=0;j<pc[(i+1)%5].size();j++){
+                dp[0][j]=ABS(pc[(i+1)%5][j].first-sr)+ABS(pc[(i+1)%5][j].second-sc);
+            }
+            for(int j=0;j<3;j++){
+                for(int k=0;k<pc[(i+j+1)%5].size();k++){
+                    for(int l=0;l<pc[(i+j+2)%5].size();l++){
+                        dp[j+1][l]=min(dp[j+1][l],dp[j][k]+
+                        ABS(pc[(i+j+2)%5][l].first-pc[(i+j+1)%5][k].first)+
+                        ABS(pc[(i+j+2)%5][l].second-pc[(i+j+1)%5][k].second));
+                    }
+                }
+            }
+            int tmp=999999999;
+            for(int j=0;j<pc[(i+4)%5].size();j++){
+                tmp=min(tmp,dp[3][j]+
+                ABS(pc[(i+4)%5][j].first-gr)+
+                ABS(pc[(i+4)%5][j].second-gc));
+            }
+            if(ret>tmp){ret=tmp;at=i;}
+        }
+        if(ret>99999999)printf("NA\n");
+        else printf("%d %d\n",at+1,ret);
