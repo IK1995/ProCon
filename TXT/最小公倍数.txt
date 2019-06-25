@@ -1,3 +1,6 @@
-ll gcd(ll a,ll b){
+ll gcd(ll a,ll b){//最大公約数（最小公倍数の求め方に必要なので書いてある）
     return b?gcd(b,a%b):a;
+}
+ll lcm(ll x,ll y){ //ここが最小公倍数の求め方の部分
+    retur x*y/gcd(x,y);
 }
