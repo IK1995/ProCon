@@ -1,46 +1,57 @@
 int right = 0;     
 for (int left = 0; left < n; ++left) {
-    while (right < n && (right ‚ğ 1 ŒÂi‚ß‚½‚Æ‚«‚ÉğŒ‚ğ–‚½‚·)) {
-        /* ÀÛ‚É right ‚ğ 1 i‚ß‚é */
+    while (right < n && (right ã‚’ 1 å€‹é€²ã‚ãŸã¨ãã«æ¡ä»¶ã‚’æº€ãŸã™)) {
+        /* å®Ÿéš›ã« right ã‚’ 1 é€²ã‚ã‚‹ */
         // ex: sum += a[right];
         ++right;
     }
 
-    /* break ‚µ‚½ó‘Ô‚Å right ‚ÍğŒ‚ğ–‚½‚·Å‘å‚È‚Ì‚ÅA‰½‚©‚·‚é */
+    /* break ã—ãŸçŠ¶æ…‹ã§ right ã¯æ¡ä»¶ã‚’æº€ãŸã™æœ€å¤§ãªã®ã§ã€ä½•ã‹ã™ã‚‹ */
     // ex: res += (right - left);
 
-    /* left ‚ğƒCƒ“ƒNƒŠƒƒ“ƒg‚·‚é€”õ */
+    /* left ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã™ã‚‹æº–å‚™ */
     // ex: if (right == left) ++right;
     // ex: else sum -= a[left];
 }
-‚µ‚á‚­‚Æ‚è–@@”Ä—pŒ^
+ã—ã‚ƒãã¨ã‚Šæ³•ã€€æ±ç”¨å‹
 
-ˆÈ‰ºA—á
+ä»¥ä¸‹ã€ä¾‹
 
-/* Q ‰ñ•ª‚ÌƒNƒGƒŠ‚ğˆ— */
+/* Q å›åˆ†ã®ã‚¯ã‚¨ãƒªã‚’å‡¦ç† */
     for (int j = 0; j < Q; ++j) {
-        long long x; cin >> x; // ŠeƒNƒGƒŠ x
+        long long x; cin >> x; // å„ã‚¯ã‚¨ãƒª x
 
-        /* ‡Œv’l */
+        /* åˆè¨ˆå€¤ */
         long long res = 0;
 
-        /* ‹æŠÔ‚Ì¶’[ left ‚Åê‡•ª‚¯ */
-        int right = 0;     // –ˆ‰ñ right ‚ğg‚¢‰ñ‚·‚æ‚¤‚É‚·‚é
-        long long sum = 0; // sum ‚àg‚¢‰ñ‚·
+        /* åŒºé–“ã®å·¦ç«¯ left ã§å ´åˆåˆ†ã‘ */
+        int right = 0;     // æ¯å› right ã‚’ä½¿ã„å›ã™ã‚ˆã†ã«ã™ã‚‹
+        long long sum = 0; // sum ã‚‚ä½¿ã„å›ã™
         for (int left = 0; left < n; ++left) {
-            /* sum ‚É a[right] ‚ğ‰Á‚¦‚Ä‚à‘åä•v‚È‚ç right ‚ğ“®‚©‚· */
+            /* sum ã« a[right] ã‚’åŠ ãˆã¦ã‚‚å¤§ä¸ˆå¤«ãªã‚‰ right ã‚’å‹•ã‹ã™ */
             while (right < n && sum + a[right] <= x) {
                 sum += a[right];
                 ++right;
             }
 
-            /* break ‚µ‚½ó‘Ô‚Å right ‚ÍğŒ‚ğ–‚½‚·Å‘å */
+            /* break ã—ãŸçŠ¶æ…‹ã§ right ã¯æ¡ä»¶ã‚’æº€ãŸã™æœ€å¤§ */
             res += (right - left);
 
-            /* left ‚ğƒCƒ“ƒNƒŠƒƒ“ƒg‚·‚é€”õ */
-            if (right == left) ++right; // right ‚ª left ‚Éd‚È‚Á‚½‚ç right ‚à“®‚©‚·
-            else sum -= a[left]; // left ‚Ì‚İ‚ªƒCƒ“ƒNƒŠƒƒ“ƒg‚³‚ê‚é‚Ì‚Å sum ‚©‚ç a[left] ‚ğˆø‚­
+            /* left ã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã™ã‚‹æº–å‚™ */
+            if (right == left) ++right; // right ãŒ left ã«é‡ãªã£ãŸã‚‰ right ã‚‚å‹•ã‹ã™
+            else sum -= a[left]; // left ã®ã¿ãŒã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã•ã‚Œã‚‹ã®ã§ sum ã‹ã‚‰ a[left] ã‚’å¼•ã
         }
 
         cout << res << endl;
+    }
+    
+    //ä¾‹ãã®ï¼’
+ for(int i = 0, j = 0; i < N; ++i){
+        scanf("%lld", A + i);
+        B *= A[i];
+        while(B > P){
+            B /= A[j];
+            ++j;
+        }
+        if(B == P)return 0 & puts("Yay!");
     }
