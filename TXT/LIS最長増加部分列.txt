@@ -18,9 +18,9 @@ ans=max(ans,dp[i]);
   
 }
 
-O(n^2)ЙЁУЪ
+O(n^2)уБошзгц│ХуААтЖС
 
-Х╩ЙЁ O(nlogn)ЙЁУЪ
+O(nlogn)уБошзгц│ХуААтЖУ
 
 fill(dp,dp+n,INT_MAX/2);
   
