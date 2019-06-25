@@ -28,7 +28,7 @@ int dfs(int v,int N,bool visited[nmax]){
  	return ret;
  }
 
-�ʉ�
+//別手法
 bool dfs(int i, int sum){
   
 if(i==n) return sum==k;
