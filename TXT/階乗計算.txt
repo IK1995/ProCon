@@ -6,4 +6,4 @@ long long kai(int n){
 }
 
 
-�ł����Ȃ�̂�long long �ɕύX
+//結果は非常に大きくなる
