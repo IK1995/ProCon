@@ -5,7 +5,7 @@ ll fib(ll n){
 	}
 }
 
-�����J
+メモ化を使ったやつ　こっちのが早い
 long long num[100000];
 ll fib(ll n){
 	if(num[n]==0){
