@@ -6,12 +6,12 @@ while(b){
             cnt++;
         }
 
-�ő����
+//最大公約数の求め方（再帰を使ったやつ）ユークリッド互除法の考え方を使っている
 ll gcd(ll a,ll b){
   if(b==0) return a;
   return gcd(b,a%b);
 }
-�ŏ����{��
+//最小公倍数の求め方(最大公約数を使っているので同じファイルに)
 ll lcm(ll a,ll b){
   ll g=gcd(a,b);
   return a/g*b;
